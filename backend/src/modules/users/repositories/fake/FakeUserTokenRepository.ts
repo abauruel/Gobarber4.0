@@ -10,7 +10,7 @@ class FakeUserTokenRepository implements IUserTokenRepository {
     const userToken = new UserToken();
     Object.assign(userToken, {
       id: uuid(),
-      token: uuid(),
+      idtoken: uuid(),
       user_id: id,
       created_at: new Date(),
       updated_at: new Date(),
@@ -20,13 +20,9 @@ class FakeUserTokenRepository implements IUserTokenRepository {
   }
 
   public async findbyToken(token: string): Promise<UserToken | undefined> {
-    const userToken = await this.usersToken.find(
-      tokenFind => tokenFind.token === token,
+    const userToken = this.usersToken.find(
+      tokenFind => tokenFind.idtoken === token,
     );
-
-    if (!userToken) {
-      throw new AppError('Invalid Token');
-    }
 
     return userToken;
   }

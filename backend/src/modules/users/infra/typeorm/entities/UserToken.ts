@@ -7,23 +7,17 @@ import {
   Generated,
 } from 'typeorm';
 
-@Entity('users_token')
+@Entity('UserToken')
 class UserToken {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
   @Generated('uuid')
-  token: string;
+  idtoken: string;
 
   @Column()
   user_id: string;
-
-  @Column()
-  avatar: string;
-
-  @Column()
-  password: string;
 
   @CreateDateColumn()
   created_at: Date;
