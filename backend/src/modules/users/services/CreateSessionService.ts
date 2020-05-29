@@ -2,6 +2,7 @@ import { sign } from 'jsonwebtoken';
 import auth from '@config/auth';
 import AppError from '@shared/errors/AppErro';
 import { injectable, inject } from 'tsyringe';
+
 import Users from '../infra/typeorm/entities/User';
 import IUserRepository from '../repositories/IUserRepository';
 import IHashProvider from '../providers/HashProvider/models/IHashProvider';
@@ -41,6 +42,7 @@ class CreateSessionService {
       throw new AppError('Incorrect Email/password combination', 401);
     }
     const { secret, expiresIn } = auth.jwt;
+
     const token = sign({}, secret, {
       subject: user.id,
       expiresIn,

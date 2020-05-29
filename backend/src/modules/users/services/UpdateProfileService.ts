@@ -16,7 +16,7 @@ class UpdateProfileService {
   constructor(
     @inject('UserRepository')
     private userRepository: IUserRepository,
-    @inject('HashProfile')
+    @inject('HashProvider')
     private hashProvider: IHashProvider,
   ) {}
 
@@ -29,7 +29,7 @@ class UpdateProfileService {
   }: IRequest): Promise<User> {
     const user = await this.userRepository.findById(user_id);
     if (!user) {
-      throw new AppError('User dos not exits');
+      throw new AppError('User does not exits');
     }
 
     const userChecked = await this.userRepository.findEmail(email);
