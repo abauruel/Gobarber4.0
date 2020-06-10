@@ -9,9 +9,14 @@ import IFindAllMonthFromProviderDTO from '../../dtos/IFindAllInMonthFromProvider
 class FakeAppointmentRepository implements IAppointmentRepository {
   private appointments: Appointment[] = [];
 
-  public async findBydate(date: Date): Promise<Appointment | undefined> {
-    const findAppointment = this.appointments.find(appointment =>
-      isEqual(appointment.date, date),
+  public async findBydate(
+    date: Date,
+    provider_id: string,
+  ): Promise<Appointment | undefined> {
+    const findAppointment = this.appointments.find(
+      appointment =>
+        isEqual(appointment.date, date) &&
+        appointment.provider_id === provider_id,
     );
     return findAppointment;
   }
