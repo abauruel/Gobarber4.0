@@ -10,7 +10,9 @@ const resetPasswordController = new ResetPasswordController();
 passwordRoute.post(
   '/forgot',
   celebrate({
-    [Segments.BODY]: Joi.string().email().required(),
+    [Segments.BODY]: {
+      email: Joi.string().email().required(),
+    },
   }),
   forgotPasswordController.create,
 );
