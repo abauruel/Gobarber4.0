@@ -1,6 +1,7 @@
 import ListProviderService from '@modules/appointments/services/ListProvideServicer';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
+import { classToClass } from 'class-transformer';
 
 class ListProvidersController {
   public async index(request: Request, response: Response): Promise<Response> {
@@ -9,7 +10,7 @@ class ListProvidersController {
 
     const providers = await listProviders.execute({ user_id });
 
-    return response.json(providers);
+    return response.json(classToClass(providers));
   }
 }
 
