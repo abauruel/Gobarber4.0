@@ -36,6 +36,7 @@ class CreateUserService {
       name,
       email,
       password: passwordHash,
+      avatar: 'avatarDefault.png',
     });
 
     await this.cacheProvider.invalidatePrefix('providers-list:*');
