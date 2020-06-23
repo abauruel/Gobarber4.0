@@ -2,7 +2,7 @@ import React, { useCallback, useState, useEffect } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
-import { View, Text } from 'react-native';
+
 import api from '../../services/api';
 import { useAuth } from '../../hooks/Auth';
 import {
@@ -31,10 +31,10 @@ export interface Provider {
 const Dashboard: React.FC = () => {
   const [providers, setProviders] = useState<Provider[]>([]);
 
-  const { signOut, user } = useAuth();
+  const { user } = useAuth();
+
   const { navigate } = useNavigation();
-  const fakeAvatarUrl =
-    'https://api.adorable.io/avatars/140/sbott@adorable.png';
+
   const navigateToProfile = useCallback(() => {
     navigate('Profile');
   }, [navigate]);
@@ -44,14 +44,14 @@ const Dashboard: React.FC = () => {
       setProviders(response.data);
     });
   }, []);
+
   const navigateToCreateAppointment = useCallback(
     (providerId: string) => {
       navigate('CreateAppointment', { providerId });
     },
-
     [navigate],
   );
-
+  console.log(user);
   return (
     <Container>
       <Header>

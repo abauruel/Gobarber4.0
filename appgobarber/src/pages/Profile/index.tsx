@@ -24,6 +24,8 @@ import {
   UserAvatarButton,
   UserAvatarImage,
   BackButton,
+  LogoutButton,
+  ContainerHeader,
 } from './styles';
 
 import Input from '../../components/Input';
@@ -38,7 +40,7 @@ interface SignUpFormData {
 }
 
 const Profile: React.FC = () => {
-  const { user, updateUser } = useAuth();
+  const { user, updateUser, signOut } = useAuth();
   const navigation = useNavigation();
   const formRef = useRef<FormHandles>(null);
   const inputOldPasswordRef = useRef<TextInput>(null);
@@ -132,6 +134,10 @@ const Profile: React.FC = () => {
       },
     );
   }, [updateUser]);
+
+  const handleLogout = useCallback(() => {
+    signOut();
+  }, [signOut]);
   return (
     <>
       <KeyboardAvoidingView
@@ -144,9 +150,15 @@ const Profile: React.FC = () => {
           contentContainerStyle={{ flex: 1 }}
         >
           <Container>
-            <BackButton onPress={() => navigation.goBack()}>
-              <Icon name="chevron-left" size={24} color="#999591" />
-            </BackButton>
+            <ContainerHeader>
+              <BackButton onPress={() => navigation.goBack()}>
+                <Icon name="chevron-left" size={24} color="#999591" />
+              </BackButton>
+              <LogoutButton onPress={handleLogout}>
+                <Icon name="log-out" size={24} color="#ff9000" />
+              </LogoutButton>
+            </ContainerHeader>
+
             <UserAvatarButton onPress={handleUpdateAvatar}>
               <UserAvatarImage source={{ uri: user.avatar_url }} />
             </UserAvatarButton>

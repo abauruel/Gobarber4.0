@@ -187,7 +187,7 @@ const CreateAppointment: React.FC = () => {
           )}
         </Calendar>
         <Schedule>
-          <Title>Escilah o horario</Title>
+          <Title>Escolha o horario</Title>
 
           <Section>
             <SectionTitle>Manhã</SectionTitle>

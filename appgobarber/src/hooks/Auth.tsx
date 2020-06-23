@@ -5,6 +5,7 @@ import React, {
   useContext,
   useEffect,
 } from 'react';
+
 import AsyncStorage from '@react-native-community/async-storage';
 import api from '../services/api';
 
@@ -81,6 +82,7 @@ const AuthProvider: React.FC = ({ children }) => {
         token: data.token,
         user,
       });
+
       await AsyncStorage.setItem('@GoBarber:user', JSON.stringify(user));
     },
     [setData, data.token],

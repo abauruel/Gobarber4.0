@@ -25,6 +25,15 @@ export const UserAvatarImage = styled.Image`
 
   align-self: center;
 `;
-export const BackButton = styled.TouchableOpacity`
+
+export const ContainerHeader = styled.View`
   margin-top: 40px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+export const BackButton = styled.TouchableOpacity``;
+
+export const LogoutButton = styled.TouchableOpacity`
+  margin-right: 24px;
 `;
