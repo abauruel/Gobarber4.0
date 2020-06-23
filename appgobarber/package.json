@@ -19,6 +19,7 @@
     "@unform/mobile": "^2.1.0",
     "axios": "^0.19.2",
     "date-fns": "^2.14.0",
+    "flipper-plugin-async-storage": "^0.0.7",
     "react": "16.11.0",
     "react-native": "0.62.2",
     "react-native-gesture-handler": "^1.6.1",
@@ -53,7 +54,9 @@
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.58.0",
     "prettier": "^2.0.4",
+    "react-native-flipper": "^0.47.0",
     "react-test-renderer": "16.11.0",
+    "rn-async-storage-flipper": "^0.0.7",
     "typescript": "^3.8.3"
   },
   "jest": {
