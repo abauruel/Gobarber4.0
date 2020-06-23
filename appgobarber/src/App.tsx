@@ -7,7 +7,7 @@ import AuthProvider from './hooks';
 
 const App: React.FC = () => (
   <NavigationContainer>
-    <StatusBar barStyle="light-content" backgroundColor="#312e39" />
+    <StatusBar barStyle="light-content" backgroundColor="#312e39" translucent />
     <AuthProvider>
       <View style={{ flex: 1, backgroundColor: '#312e39' }}>
         <Routes />
