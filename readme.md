@@ -111,4 +111,4 @@ This project uses the MIT license. Read [LICENSE](LICENSE.md) for details.
 
 ---
 
-Made with ♥ by Vinícius Albuquerque :wave:
+Made with ♥ by Alex Claude :wave:
