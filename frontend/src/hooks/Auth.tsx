@@ -27,9 +27,7 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 function useAuth(): AuthContextData {
   const context = useContext(AuthContext);
-  if (!context) {
-    throw Error('useAuth  must be used within an AuthProvider');
-  }
+
   return context;
 }
 

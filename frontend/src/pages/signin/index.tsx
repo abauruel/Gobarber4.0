@@ -34,6 +34,7 @@ const Signin: React.FC = () => {
           password: Yup.string().required('Digite o password'),
         });
         await schema.validate(data, { abortEarly: false });
+
         await signIn({ email: data.email, password: data.password });
         history.push('/dashboard');
       } catch (error) {
