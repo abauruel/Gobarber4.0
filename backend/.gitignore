@@ -1,7 +1,10 @@
 node_modules
 *.log
-*coverage*
+coverage
 .env
 ormconfig.json
 tmp/uploads/*
 !tmp/uploads/avatarDefault.png
+.vscode/
+build/
+dist
